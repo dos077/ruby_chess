@@ -123,4 +123,8 @@ class Game
     true
   end
 
+  def pawn_promote(pawn, color, new_class)
+    @board.squares[pawn] = new_class.new(color)
+end
+
 end

@@ -71,4 +71,12 @@ RSpec.describe Game do
     it { expect(game.checkmate('black')).to be false }
   end
 
+  describe '#pawn_promote' do
+    game = Game.new('p1', 'p2')
+    white_pawn = {square: [0, 0], piece: Pawn.new('white')}
+    game.load_board([white_pawn])
+    game.pawn_promote([0, 0], 'white', Queen)
+    it { expect(game.select([0, 0])[:piece].class).to eql(Queen) }
+  end
+
 end
