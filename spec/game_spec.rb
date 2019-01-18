@@ -15,9 +15,8 @@ RSpec.describe Game do
     it { expect(game.select([0, 2])).to be false }
   end
 
-  describe '#find_moves' do
+  describe '@board#find_moves' do
     game = Game.new('p1', 'p2')
-    game.find_moves
     it { expect(game.select([0, 0])[:piece].moves.count).to eql(0) }
     it { expect(game.select([0, 1])[:piece].moves.count).to eql(2) }
     it { expect(game.select([6, 7])[:piece].moves.count).to eql(2) }
@@ -30,7 +29,7 @@ RSpec.describe Game do
     it { expect(game.select([0, 1])).to be false }
   end
 
-  describe 'en_passant?' do
+  describe '#en_passant?' do
     game = Game.new('p1', 'p2')
     game.load_board( [ {square: [0, 1], piece: Pawn.new('white')}, {square: [1, 3], piece: Pawn.new('black')} ] )
     game.move([0, 1], [0, 3])
@@ -41,14 +40,13 @@ RSpec.describe Game do
     it { expect(game.select([0, 2])[:piece].color).to eql('black') }
   end
 
-  describe 'castling?' do
+  describe '#castling?' do
     game = Game.new('p1', 'p2')
     white_king = {square: Board.convert('e1'), piece: King.new('white')}
     white_rook= {square: Board.convert('h1'), piece: Rook.new('white')}
     black_king = {square: Board.convert('e8'), piece: King.new('black')}
     black_rook = {square: Board.convert('a8'), piece: Rook.new('black')}
     game.load_board([white_king, white_rook, black_king, black_rook])
-    game.find_moves
     game.castling?
     white_castling = game.select([4, 0])[:special]
     black_castling = game.select([4, 7])[:special]
@@ -58,6 +56,19 @@ RSpec.describe Game do
     game.castling(white_king[:square], white_castling[:move], white_castling[:rook], white_castling[:rook_move])
     it { expect(game.select([6, 0])[:piece].class).to eql(King) }
     it { expect(game.select([5, 0])[:piece].class).to eql(Rook) }
+  end
+
+  describe '#check and #checkmate' do
+    game = Game.new('p1', 'p2')
+    white_king = {square: Board.convert('h1'), piece: King.new('white')}
+    black_bishop1 = {square: Board.convert('e3'), piece: Bishop.new('black')}
+    black_bishop2 = {square: Board.convert('f3'), piece: Bishop.new('black')}
+    black_king = {square: Board.convert('h3'), piece: King.new('black')}
+    game.load_board([white_king, black_bishop1, black_bishop2, black_king])
+    it { expect(game.check('white')).to be true }
+    it { expect(game.check('black')).to be false }
+    it { expect(game.checkmate('white')).to be true }
+    it { expect(game.checkmate('black')).to be false }
   end
 
 end

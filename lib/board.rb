@@ -1,5 +1,5 @@
 class Board
-  attr_reader :squares
+  attr_accessor :squares, :specials
 
   @@alpha = %w(a b c d e f g h)
 
@@ -11,6 +11,7 @@ class Board
         @squares[coordinate] = nil
       end
     end
+    @specials = {}
   end
 
   def self.convert(algebraic)
@@ -66,6 +67,12 @@ class Board
       end
     end
     [clears, enemies]
+  end
+
+  def find_moves
+    @squares.each do |coordinate, piece|
+      piece.pathfinding(coordinate, self) if piece
+    end
   end
 
 end
