@@ -65,8 +65,7 @@ end
 class Pawn < Piece
   def pathfinding(current, board)
     @directions = [ [0, 1] ]
-    @directions << [0, 2] if first_move
-    @move_limit = 1
+    @move_limit = (first_move)? 2 : 1
     super
     @takes = []
     [ [-1, 1], [1, 1] ].each do |direction|

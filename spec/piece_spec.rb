@@ -3,8 +3,8 @@ require './lib/piece.rb'
 
 RSpec.shared_examples 'piece examples' do |piece, move_count, moves, takes|
   board = Board.new
-  d2 = board.convert('d2'); e2 = board.convert('e2'); f3 = board.convert('f3')
-  e3 = board.convert('e3')
+  d2 = Board.convert('d2'); e2 = Board.convert('e2'); f3 = Board.convert('f3')
+  e3 = Board.convert('e3')
   board.add_piece(piece, d2)
   board.add_piece(Pawn.new('white'), e2)
   board.add_piece(Pawn.new('white'), f3)
@@ -13,10 +13,10 @@ RSpec.shared_examples 'piece examples' do |piece, move_count, moves, takes|
   
   it { expect(piece.moves.length).to eql(move_count) }
   moves.each do |move|
-    it { expect(piece.moves.include?(board.convert(move))).to be true }
+    it { expect(piece.moves.include?(Board.convert(move))).to be true }
   end
   takes.each do |take|
-    it { expect(piece.takes.include?(board.convert(take))).to be true }
+    it { expect(piece.takes.include?(Board.convert(take))).to be true }
   end
 end
 

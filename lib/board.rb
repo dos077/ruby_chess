@@ -13,7 +13,7 @@ class Board
     end
   end
 
-  def convert(algebraic)
+  def self.convert(algebraic)
     if algebraic.is_a?(String) &&
        algebraic.length == 2 &&
        @@alpha.include?(algebraic.chars[0]) &&
