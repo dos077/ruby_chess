@@ -1,15 +1,20 @@
 require './lib/game.rb'
+require 'yaml'
 
 class GameController
 
   def initialize
-    puts "To start a new game of chest, please tell me your name."
+    puts "To start a new game of chest, please tell me your name. If you wish to load a save game, say load."
     player1 = gets.chomp
-    puts "#{player1} you are white."
-    puts "Now who are you going up against?"
-    player2 = gets.chomp
-    puts "#{player2} you are black"
-    @game = Game.new(player1, player2)
+    if player1.downcase == 'load'
+      load
+    else
+      puts "#{player1} you are white."
+      puts "Now who are you going up against?"
+      player2 = gets.chomp
+      puts "#{player2} you are black"
+      @game = Game.new(player1, player2)
+    end
     play
   end
 
@@ -74,8 +79,13 @@ class GameController
     origin = nil
     piece = nil
     special = nil
-    puts "#{player} please tell me which piece you wish to move."
-    origin = Board.convert(gets.chomp.downcase)
+    puts "#{player} please tell me which piece you wish to move. Or if you wish to save the game, say save."
+    response = gets.chomp.downcase
+    if response == 'save'
+      save
+      return [nil, nil, nil]
+    end
+    origin = Board.convert(response)
     if origin
       if @game.select(origin)
         piece = @game.select(origin)[:piece]
@@ -125,6 +135,21 @@ class GameController
     screen += "---+---+---+---+---+---+---+---+---\n"
     screen += "   | a | b | c | d | e | f | g | h |\n"
     puts screen
+  end
+
+  def save
+    puts "Please name your save."
+    file_name = gets.chomp.downcase
+    Dir.mkdir("saves") unless Dir.exists?("saves")
+    File.open("saves/#{file_name}.save", 'w') do |file|
+        file.puts YAML.dump(@game)
+    end
+  end
+
+  def load
+    puts "Tell me the save you wish to load."
+    file_name = gets.chomp.downcase
+    @game = YAML.load(File.open("saves/#{file_name}.save", 'r'))
   end
   
 end

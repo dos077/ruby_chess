@@ -1,0 +1,715 @@
+--- !ruby/object:Game
+player1: Lily
+player2: Jam
+board: !ruby/object:Board
+  squares:
+    ? - 0
+      - 0
+    : !ruby/object:Rook
+      color: white
+      moves: []
+      takes: []
+      first_move: true
+      move_limit: 7
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+    ? - 0
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 0
+        - 2
+      - - 0
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 0
+      - 2
+    : 
+    ? - 0
+      - 3
+    : 
+    ? - 0
+      - 4
+    : 
+    ? - 0
+      - 5
+    : 
+    ? - 0
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 0
+        - 5
+      - - 0
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 0
+      - 7
+    : !ruby/object:Rook
+      color: black
+      moves: []
+      takes: []
+      first_move: true
+      move_limit: 7
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+    ? - 1
+      - 0
+    : !ruby/object:Knight
+      color: white
+      moves:
+      - - 2
+        - 2
+      - - 0
+        - 2
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 2
+      - - -1
+        - 2
+      - - 1
+        - -2
+      - - -1
+        - -2
+      - - 2
+        - 1
+      - - -2
+        - 1
+      - - 2
+        - -1
+      - - -2
+        - -1
+      move_limit: 1
+    ? - 1
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 1
+        - 2
+      - - 1
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 1
+      - 2
+    : 
+    ? - 1
+      - 3
+    : 
+    ? - 1
+      - 4
+    : 
+    ? - 1
+      - 5
+    : 
+    ? - 1
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 1
+        - 5
+      - - 1
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 1
+      - 7
+    : !ruby/object:Knight
+      color: black
+      moves:
+      - - 2
+        - 5
+      - - 0
+        - 5
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 2
+      - - -1
+        - 2
+      - - 1
+        - -2
+      - - -1
+        - -2
+      - - 2
+        - 1
+      - - -2
+        - 1
+      - - 2
+        - -1
+      - - -2
+        - -1
+      move_limit: 1
+    ? - 2
+      - 0
+    : !ruby/object:Bishop
+      color: white
+      moves: []
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 2
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 2
+        - 2
+      - - 2
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 2
+      - 2
+    : 
+    ? - 2
+      - 3
+    : 
+    ? - 2
+      - 4
+    : 
+    ? - 2
+      - 5
+    : 
+    ? - 2
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 2
+        - 5
+      - - 2
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 2
+      - 7
+    : !ruby/object:Bishop
+      color: black
+      moves: []
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 3
+      - 0
+    : !ruby/object:Queen
+      color: white
+      moves: []
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 3
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 3
+        - 2
+      - - 3
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 3
+      - 2
+    : 
+    ? - 3
+      - 3
+    : 
+    ? - 3
+      - 4
+    : 
+    ? - 3
+      - 5
+    : 
+    ? - 3
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 3
+        - 5
+      - - 3
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 3
+      - 7
+    : !ruby/object:Queen
+      color: black
+      moves:
+      - - 4
+        - 6
+      - - 5
+        - 5
+      - - 6
+        - 4
+      - - 7
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 4
+      - 0
+    : !ruby/object:King
+      color: white
+      moves:
+      - - 5
+        - 1
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 1
+    ? - 4
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 4
+        - 2
+      - - 4
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 4
+      - 2
+    : 
+    ? - 4
+      - 3
+    : 
+    ? - 4
+      - 4
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 4
+        - 3
+      takes: []
+      first_move: false
+      directions:
+      - - 0
+        - -1
+      move_limit: 1
+    ? - 4
+      - 5
+    : 
+    ? - 4
+      - 6
+    : 
+    ? - 4
+      - 7
+    : !ruby/object:King
+      color: black
+      moves:
+      - - 4
+        - 6
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 1
+    ? - 5
+      - 0
+    : !ruby/object:Bishop
+      color: white
+      moves:
+      - - 6
+        - 1
+      - - 7
+        - 2
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 5
+      - 1
+    : 
+    ? - 5
+      - 2
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 5
+        - 3
+      takes: []
+      first_move: false
+      directions:
+      - - 0
+        - 1
+      move_limit: 1
+    ? - 5
+      - 3
+    : 
+    ? - 5
+      - 4
+    : 
+    ? - 5
+      - 5
+    : 
+    ? - 5
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 5
+        - 5
+      - - 5
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 5
+      - 7
+    : !ruby/object:Bishop
+      color: black
+      moves:
+      - - 4
+        - 6
+      - - 3
+        - 5
+      - - 2
+        - 4
+      - - 1
+        - 3
+      - - 0
+        - 2
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 1
+      - - -1
+        - 1
+      - - 1
+        - -1
+      - - -1
+        - -1
+      move_limit: 7
+    ? - 6
+      - 0
+    : !ruby/object:Knight
+      color: white
+      moves:
+      - - 7
+        - 2
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 2
+      - - -1
+        - 2
+      - - 1
+        - -2
+      - - -1
+        - -2
+      - - 2
+        - 1
+      - - -2
+        - 1
+      - - 2
+        - -1
+      - - -2
+        - -1
+      move_limit: 1
+    ? - 6
+      - 1
+    : 
+    ? - 6
+      - 2
+    : 
+    ? - 6
+      - 3
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 6
+        - 4
+      takes: []
+      first_move: false
+      directions:
+      - - 0
+        - 1
+      move_limit: 1
+    ? - 6
+      - 4
+    : 
+    ? - 6
+      - 5
+    : 
+    ? - 6
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 6
+        - 5
+      - - 6
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 6
+      - 7
+    : !ruby/object:Knight
+      color: black
+      moves:
+      - - 7
+        - 5
+      - - 5
+        - 5
+      - - 4
+        - 6
+      takes: []
+      first_move: true
+      directions:
+      - - 1
+        - 2
+      - - -1
+        - 2
+      - - 1
+        - -2
+      - - -1
+        - -2
+      - - 2
+        - 1
+      - - -2
+        - 1
+      - - 2
+        - -1
+      - - -2
+        - -1
+      move_limit: 1
+    ? - 7
+      - 0
+    : !ruby/object:Rook
+      color: white
+      moves: []
+      takes: []
+      first_move: true
+      move_limit: 7
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+    ? - 7
+      - 1
+    : !ruby/object:Pawn
+      color: white
+      moves:
+      - - 7
+        - 2
+      - - 7
+        - 3
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - 1
+      move_limit: 2
+    ? - 7
+      - 2
+    : 
+    ? - 7
+      - 3
+    : 
+    ? - 7
+      - 4
+    : 
+    ? - 7
+      - 5
+    : 
+    ? - 7
+      - 6
+    : !ruby/object:Pawn
+      color: black
+      moves:
+      - - 7
+        - 5
+      - - 7
+        - 4
+      takes: []
+      first_move: true
+      directions:
+      - - 0
+        - -1
+      move_limit: 2
+    ? - 7
+      - 7
+    : !ruby/object:Rook
+      color: black
+      moves: []
+      takes: []
+      first_move: true
+      move_limit: 7
+      directions:
+      - - 1
+        - 0
+      - - -1
+        - 0
+      - - 0
+        - 1
+      - - 0
+        - -1
+  specials: {}
+turn: 4
