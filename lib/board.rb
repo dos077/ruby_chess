@@ -59,8 +59,8 @@ class Board
       delta_x, delta_y = direction_x * i, direction_y * i
       target = [x + delta_x, y + delta_y]
       break unless @squares.keys.include?(target)
-      if square_color = @squares[target]
-        enemies << target if color != square_color
+      if occupant = @squares[target]
+        enemies << target if (color != occupant.color)
         break
       else
         clears << target

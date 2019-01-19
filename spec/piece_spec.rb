@@ -37,7 +37,7 @@ RSpec.describe King do
 end
 
 RSpec.describe Pawn do
-  include_examples 'piece examples', Pawn.new('black'), 2, ['d3'], ['e3']
+  include_examples 'piece examples', Pawn.new('black'), 1, ['d1'], []
 end
 
 RSpec.describe Knight do

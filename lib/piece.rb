@@ -27,6 +27,10 @@ class Rook < Piece
     @directions = [ [1, 0], [-1, 0], [0, 1], [0, -1] ]
     super
   end
+  
+  def display
+    (@color=='black')? '♖' : '♜'
+  end
 
 end
 
@@ -36,6 +40,11 @@ class Bishop < Piece
     @move_limit = 7
     super
   end
+
+  def display
+    (@color=='black')? '♗' : '♝'
+  end
+
 end
 
 class Queen < Piece
@@ -44,6 +53,11 @@ class Queen < Piece
     @move_limit = 7
     super
   end
+
+  def display
+    (@color=='black')? '♕' : '♛'
+  end
+
 end
 
 class King < Piece
@@ -52,6 +66,11 @@ class King < Piece
     @move_limit = 1
     super
   end
+
+  def display
+    (@color=='black')? '♔' : '♚'
+  end
+
 end
 
 class Knight < Piece
@@ -60,16 +79,27 @@ class Knight < Piece
     @move_limit = 1
     super
   end
+
+  def display
+    (@color=='black')? '♘' : '♞'
+  end
+
 end
 
 class Pawn < Piece
   def pathfinding(current, board)
-    @directions = [ [0, 1] ]
+    @directions = (@color=='white')? [ [0, 1] ] : [ [0, -1] ]
     @move_limit = (first_move)? 2 : 1
     super
     @takes = []
-    [ [-1, 1], [1, 1] ].each do |direction|
-      @takes += board.clearpath(current, @color, @move_limit, direction)[1]
+    directions = (@color == 'white')? [ [-1, 1], [1, 1] ] : [ [-1, -1], [1, -1] ]
+    directions.each do |direction|
+        @takes += board.clearpath(current, @color, @move_limit, direction)[1]
     end
   end
+
+  def display
+    (@color=='black')? '♙' : '♟'
+  end
+
 end

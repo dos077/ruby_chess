@@ -2,7 +2,7 @@ require './lib/board.rb'
 require './lib/piece.rb'
 
 class Game
-  attr_reader :player1, :player2, :turn
+  attr_reader :player1, :player2, :turn, :board
 
   def initialize(player1, player2)
     @player1 = player1
@@ -34,7 +34,7 @@ class Game
   end
 
   def move(origin, target, board = @board)
-    piece = @board.squares[origin]
+    piece = board.squares[origin]
     board.squares[target] = piece
     board.squares[origin] = nil
     board.specials = {}
@@ -44,8 +44,8 @@ class Game
         en_passant?(target, piece.color)
       end
     end
-    board.find_moves
     castling?
+    board.find_moves
   end
 
   def next_turn
@@ -105,6 +105,12 @@ class Game
     enemies.any? { |s, p| p.takes.include?(king_square) }
   end
 
+  def uncheck?(origin, target, color)
+    mock_board = Marshal.load( Marshal.dump(@board) )
+    move(origin, target, mock_board)
+    !check(color, mock_board.squares)
+  end
+
   def checkmate(color)
     pieces = @board.squares.select { |s, p| p && p.color == color }
     pieces.each do |origin, piece|
@@ -125,6 +131,6 @@ class Game
 
   def pawn_promote(pawn, color, new_class)
     @board.squares[pawn] = new_class.new(color)
-end
+  end
 
 end
